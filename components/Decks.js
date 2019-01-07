@@ -1,30 +1,63 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
 
-import { getDecks } from '../utils/api';
+import { View, Text, StyleSheet, FlatList } from 'react-native'
+
+import { getDecks } from '../utils/api'
+import { receiveDecks } from '../actions'
+import { AppLoading } from 'expo'
+import Deck from './Deck'
 
 class Decks extends Component {
   state = {
-    decks: []
+    ready: false
   }
 
   componentDidMount() {
+    const { dispatch } = this.props
     getDecks()
-      .then(decks => {
+      .then(decks => dispatch(receiveDecks(decks)))
+      .then(() => {
         this.setState(() => ({
-          decks
+          ready: true
         }))
       })
   }
 
   render() {
-    const {decks} = this.state
+    const { ready } = this.state
+    const { decks } = this.props
+
+    if (ready === false) {
+      return <AppLoading />
+    }
+
     return (
-      <View>
-        <Text>{JSON.stringify(decks)}</Text>
+      <View style={styles.container}>
+        <FlatList
+          data={Object.keys(decks)}
+          renderItem={({ item }) => (
+            <View key={item}>
+              <Deck id={item} />
+            </View>
+          )}
+          keyExtractor={item => item}
+        />
       </View>
     )
   }
 }
 
-export default Decks
+const mapStateToProps = decks => {
+  return {
+    decks
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+})
+
+export default connect(mapStateToProps)(Decks)
