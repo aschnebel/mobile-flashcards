@@ -1,8 +1,14 @@
 import React from 'react'
+
 import { StatusBar, View } from 'react-native'
 import { Constants } from 'expo'
 
-import { purple } from './utils/colors';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import reducer from './reducers'
+
+import { purple } from './utils/colors'
 
 import Decks from './components/Decks'
 
@@ -16,10 +22,12 @@ function UdaciStatusBar({ backgroundColor, ...props }) {
 export default class App extends React.Component {
   render() {
     return (
-      <View style={[{ flex: 1 }]}>
-        <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
-        <Decks />
-      </View>
+      <Provider store={createStore(reducer)}>
+        <View style={[{ flex: 1 }]}>
+          <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
+          <Decks />
+        </View>
+      </Provider>
     )
   }
 }
