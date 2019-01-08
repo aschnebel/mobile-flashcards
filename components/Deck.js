@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { PixelRatio } from 'expo'
 
 import { grey } from '../utils/colors'
 
@@ -9,10 +8,7 @@ class Deck extends Component {
   render() {
     const { deck } = this.props
     return (
-      <View>
-        <TouchableOpacity style={styles.deckContainer} onPress={
-          () => console.log('GoToDeck')
-          }>
+      <View style={styles.deckContainer}>
           <Text style={styles.title}>{deck.title}</Text>
           <Text style={styles.cards}>
             {deck.questions.length === 1 
@@ -20,7 +16,6 @@ class Deck extends Component {
               : `${deck.questions.length} cards`
             }
           </Text>
-        </TouchableOpacity>
       </View>
     )
   }

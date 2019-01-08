@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 
 import { getDecks } from '../utils/api'
 import { receiveDecks } from '../actions'
@@ -38,7 +38,15 @@ class Decks extends Component {
           data={Object.keys(decks)}
           renderItem={({ item }) => (
             <View key={item}>
-              <Deck id={item} />
+              <TouchableOpacity
+                onPress={() =>
+                  this.props.navigation.navigate('DeckDetails', {
+                    deckId: item
+                  })
+                }
+              >
+                <Deck id={item} />
+              </TouchableOpacity>
             </View>
           )}
           keyExtractor={item => item}
