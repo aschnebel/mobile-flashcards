@@ -24,7 +24,7 @@ class DeckDetails extends Component {
   }
 
   render() {
-    const { deck } = this.props
+    const { deck, deckId, navigation } = this.props
 
     return (
       <View style={styles.container}>
@@ -37,7 +37,11 @@ class DeckDetails extends Component {
           </Text>
         </View>
         <View style={styles.deckActions}>
-          <TextButton>Add Card</TextButton>
+          <TextButton
+            onPress={() => navigation.navigate('AddCard', { deckId })}
+          >
+            Add Card
+          </TextButton>
           <TextButton
             style={{ backgroundColor: 'black' }}
             textStyle={{ color: white }}

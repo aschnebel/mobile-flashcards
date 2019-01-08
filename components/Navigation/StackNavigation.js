@@ -1,10 +1,11 @@
 import React from 'react'
 import { createAppContainer, createStackNavigator } from 'react-navigation'
 
-import { white, purple } from '../../utils/colors';
+import { white, purple } from '../../utils/colors'
 
 import TabNavigation from './TabNavigation'
-import DeckDetails from '../DeckDetails';
+import DeckDetails from '../DeckDetails'
+import AddCard from '../AddCard'
 
 const stacks = createStackNavigator({
   Home: {
@@ -17,13 +18,21 @@ const stacks = createStackNavigator({
   },
   DeckDetails: {
     screen: DeckDetails,
-    navigationOptions: {
-      headerTintColor: white,
-      headerStyle: {
-        backgroundColor: purple
-      }
-    }
+    navigationOptions: getNavigationOptions()
+  },
+  AddCard: {
+    screen: AddCard,
+    navigationOptions: getNavigationOptions()
   }
 })
+
+function getNavigationOptions() {
+  return {
+    headerTintColor: white,
+    headerStyle: {
+      backgroundColor: purple
+    }
+  }
+}
 
 export default createAppContainer(stacks)
