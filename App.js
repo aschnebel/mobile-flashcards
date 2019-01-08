@@ -10,7 +10,7 @@ import reducer from './reducers'
 
 import { purple } from './utils/colors'
 
-import Decks from './components/Decks'
+import TabNavigation from './components/Navigation/TabNavigation';
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
@@ -25,7 +25,7 @@ export default class App extends React.Component {
       <Provider store={createStore(reducer)}>
         <View style={[{ flex: 1 }]}>
           <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
-          <Decks />
+          <TabNavigation />
         </View>
       </Provider>
     )
