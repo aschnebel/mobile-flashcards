@@ -12,7 +12,8 @@ export default function decks(state = {}, action) {
         ...state,
         [action.title]: {
           ...state[action.title],
-          title: action.title
+          title: action.title,
+          questions: []
         }
       }
     case ADD_CARD:

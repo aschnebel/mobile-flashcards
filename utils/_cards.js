@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native'
 
 export const CARDS_STORAGE_KEY = 'UdaciCards:cards'
 
-function setCardsData() {
+function getDummyCardsData() {
   const cards = {
     React: {
       title: 'React',
@@ -34,6 +34,8 @@ function setCardsData() {
   return cards
 }
 
-export function getData() {
-  return setCardsData()
+export async function getData(results) {
+  return results === null 
+    ? getDummyCardsData()
+    : JSON.parse(results)
 }

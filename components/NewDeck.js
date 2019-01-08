@@ -8,7 +8,11 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import { grey } from '../utils/colors'
-import TextButton from './TextButton';
+
+import { saveDeckTitle } from '../utils/api'
+import { addDeck } from '../actions'
+
+import TextButton from './TextButton'
 
 class NewDeck extends Component {
   state = {
@@ -16,9 +20,15 @@ class NewDeck extends Component {
   }
 
   handleSubmit = () => {
-    //Save in AsyncStorage
-    //Dispatch action
-    //Navigate to the Individual Deck View
+    const { value } = this.state
+    const { dispatch, navigation } = this.props
+    saveDeckTitle(value)
+      .then(dispatch(addDeck(value)))
+      .then(
+        navigation.navigate('DeckDetails', {
+          deckId: value
+        })
+      )
   }
 
   handleChange = text => {
@@ -42,11 +52,9 @@ class NewDeck extends Component {
             value={value}
             placeholder="Deck title"
           />
-          <TextButton onPress={this.handleSubmit}>
-            Submit
-          </TextButton>
+          <TextButton onPress={this.handleSubmit}>Submit</TextButton>
         </View>
-        <View  style={{height: 150}}/>
+        <View style={{ height: 150 }} />
       </KeyboardAvoidingView>
     )
   }

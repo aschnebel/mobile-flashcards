@@ -2,7 +2,8 @@ import { AsyncStorage } from 'react-native'
 import { CARDS_STORAGE_KEY, getData } from './_cards'
 
 export function getDecks() {
-  return AsyncStorage.getItem(CARDS_STORAGE_KEY).then(getData)
+  return AsyncStorage.getItem(CARDS_STORAGE_KEY)
+  .then(getData)
 }
 
 export function getDeck(id) {
@@ -16,7 +17,8 @@ export function saveDeckTitle(title) {
     CARDS_STORAGE_KEY,
     JSON.stringify({
       [title]: {
-        title
+        title, 
+        questions: []
       }
     })
   )
