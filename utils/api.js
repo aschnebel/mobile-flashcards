@@ -17,7 +17,7 @@ export function saveDeckTitle(title) {
     CARDS_STORAGE_KEY,
     JSON.stringify({
       [title]: {
-        title, 
+        title,
         questions: []
       }
     })
@@ -33,4 +33,13 @@ export function saveCardToDeck(title, card) {
       }
     })
   )
+}
+
+export function removeDeck(title) {
+  return AsyncStorage.getItem(CARDS_STORAGE_KEY).then(results => {
+    const data = JSON.parse(results)
+    data[title] = undefined
+    delete data[title]
+    AsyncStorage.setItem(CARDS_STORAGE_KEY, JSON.stringify(data))
+  })
 }

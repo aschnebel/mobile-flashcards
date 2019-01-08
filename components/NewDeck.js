@@ -24,6 +24,11 @@ class NewDeck extends Component {
     const { dispatch, navigation } = this.props
     saveDeckTitle(value)
       .then(dispatch(addDeck(value)))
+      .then(() => {
+        this.setState(() => ({
+          value: ''
+        }))
+      })
       .then(
         navigation.navigate('DeckDetails', {
           deckId: value
