@@ -10,6 +10,7 @@ import reducer from './reducers'
 
 import { purple } from './utils/colors'
 
+import { setLocalNotification } from './utils/helpers';
 import StackNavigation from './components/Navigation/StackNavigation'
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
@@ -20,6 +21,9 @@ function UdaciStatusBar({ backgroundColor, ...props }) {
   )
 }
 export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification()
+  }
   render() {
     return (
       <Provider store={createStore(reducer)}>

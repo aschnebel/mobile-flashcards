@@ -8,6 +8,10 @@ import QuizResult from './QuizResult'
 import Question from './Question'
 import Answer from './Answer'
 import RemainingQuestions from './RemainingQuestions'
+import {
+  setLocalNotification,
+  clearLocalNotification
+} from '../../utils/helpers'
 
 class Quiz extends Component {
   state = {
@@ -19,6 +23,8 @@ class Quiz extends Component {
   }
 
   componentDidMount() {
+    clearLocalNotification()
+      .then(setLocalNotification)
     this.getNextQuestion()
   }
 

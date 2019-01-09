@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native'
 
-export const CARDS_STORAGE_KEY = 'UdaciCards:cards'
+export const CARDS_STORAGE_KEY = 'MobileFlashcards:cards'
 
 function getDummyCardsData() {
   const cards = {
