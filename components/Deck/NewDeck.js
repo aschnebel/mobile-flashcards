@@ -57,7 +57,7 @@ class NewDeck extends Component {
             value={value}
             placeholder="Deck title"
           />
-          <TextButton onPress={this.handleSubmit}>Submit</TextButton>
+          <TextButton onPress={this.handleSubmit}>Create Deck</TextButton>
         </View>
         <View style={{ height: 150 }} />
       </KeyboardAvoidingView>
