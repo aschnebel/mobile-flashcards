@@ -16,7 +16,7 @@ export default (QuizResult = ({
       <Text style={styles.message}>Your score</Text>
       <Text style={styles.message}>
         <Feather name="check" size={30} color={green} />
-        {(correctAnswers / totalAnswers) * 100}%
+        {(correctAnswers / totalAnswers * 100).toFixed(2)}%
       </Text>
     </View>
     <View style={styles.actionsContainer}>
