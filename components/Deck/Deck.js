@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { grey } from '../utils/colors'
+import { grey } from '../../utils/colors'
 
 class Deck extends Component {
   render() {

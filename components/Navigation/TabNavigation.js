@@ -5,8 +5,8 @@ import { Ionicons } from '@expo/vector-icons'
 
 import { purple, white } from '../../utils/colors'
 
-import Decks from '../Decks'
-import NewDeck from '../NewDeck'
+import Decks from '../Deck/Decks'
+import NewDeck from '../Deck/NewDeck'
 
 const Tabs = createBottomTabNavigator(
   {

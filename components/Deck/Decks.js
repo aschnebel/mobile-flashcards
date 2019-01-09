@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 
-import { getDecks } from '../utils/api'
-import { receiveDecks } from '../actions'
+import { getDecks } from '../../utils/api'
+import { receiveDecks } from '../../actions'
 import { AppLoading } from 'expo'
 import Deck from './Deck'
 

@@ -7,12 +7,12 @@ import {
   KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
-import { grey } from '../utils/colors'
+import { grey } from '../../utils/colors'
 
-import { saveDeckTitle } from '../utils/api'
-import { addDeck } from '../actions'
+import { saveDeckTitle } from '../../utils/api'
+import { addDeck } from '../../actions'
 
-import TextButton from './TextButton'
+import TextButton from '../TextButton'
 
 class NewDeck extends Component {
   state = {

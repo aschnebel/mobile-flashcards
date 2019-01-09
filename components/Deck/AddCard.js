@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native'
 
-import { grey } from '../utils/colors'
-import { saveCardToDeck } from '../utils/api'
-import { addCard } from '../actions'
+import { grey } from '../../utils/colors'
+import { saveCardToDeck } from '../../utils/api'
+import { addCard } from '../../actions'
 
 class AddCard extends Component {
   static navigationOptions = () => {

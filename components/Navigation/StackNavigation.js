@@ -4,8 +4,8 @@ import { createAppContainer, createStackNavigator } from 'react-navigation'
 import { white, purple } from '../../utils/colors'
 
 import TabNavigation from './TabNavigation'
-import DeckDetails from '../DeckDetails'
-import AddCard from '../AddCard'
+import DeckDetails from '../Deck/DeckDetails'
+import AddCard from '../Deck/AddCard'
 import Quiz from '../Quiz/Quiz';
 
 const stacks = createStackNavigator({

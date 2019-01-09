@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text, StyleSheet } from 'react-native'
-import { grey, white, pink } from '../utils/colors'
+import { grey, white, pink } from '../../utils/colors'
 
-import { removeDeck } from '../utils/api'
-import { deleteDeck } from '../actions'
+import { removeDeck } from '../../utils/api'
+import { deleteDeck } from '../../actions'
 
-import TextButton from './TextButton'
+import TextButton from '../TextButton'
 
 class DeckDetails extends Component {
   static navigationOptions = ({ navigation }) => {
