@@ -45,6 +45,7 @@ class DeckDetails extends Component {
           <TextButton
             style={{ backgroundColor: 'black' }}
             textStyle={{ color: white }}
+            onPress={() => navigation.navigate('Quiz', { deckId })}
           >
             Start Quiz
           </TextButton>

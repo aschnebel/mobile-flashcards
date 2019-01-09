@@ -6,6 +6,7 @@ import { white, purple } from '../../utils/colors'
 import TabNavigation from './TabNavigation'
 import DeckDetails from '../DeckDetails'
 import AddCard from '../AddCard'
+import Quiz from '../Quiz/Quiz';
 
 const stacks = createStackNavigator({
   Home: {
@@ -22,6 +23,10 @@ const stacks = createStackNavigator({
   },
   AddCard: {
     screen: AddCard,
+    navigationOptions: getNavigationOptions()
+  },
+  Quiz: {
+    screen: Quiz,
     navigationOptions: getNavigationOptions()
   }
 })
