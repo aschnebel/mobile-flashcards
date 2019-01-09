@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 import R from 'ramda'
 
@@ -6,6 +7,7 @@ import EmptyDeck from './EmptyDeck'
 import QuizResult from './QuizResult'
 import Question from './Question'
 import Answer from './Answer'
+import RemainingQuestions from './RemainingQuestions'
 
 class Quiz extends Component {
   state = {
@@ -88,6 +90,9 @@ class Quiz extends Component {
       showAnswer
     } = this.state
 
+    const askedQuestions = answeredQuestions.length
+    const totalQuestions = deck.questions.length
+
     if (deck.questions.length === 0) {
       return <EmptyDeck />
     }
@@ -107,18 +112,30 @@ class Quiz extends Component {
 
     if (showAnswer === false) {
       return (
-        <Question
-          question={currentQuestion.question}
-          handleToggle={this.toggleAnswer}
-        />
+        <View style={{ flex: 1 }}>
+          <Question
+            question={currentQuestion.question}
+            handleToggle={this.toggleAnswer}
+          />
+          <RemainingQuestions
+            askedQuestions={askedQuestions}
+            totalQuestions={totalQuestions}
+          />
+        </View>
       )
     }
 
     return (
-      <Answer
-        answer={currentQuestion.answer}
-        handleAnswer={this.handleAnswer}
-      />
+      <View style={{ flex: 1 }}>
+        <Answer
+          answer={currentQuestion.answer}
+          handleAnswer={this.handleAnswer}
+        />
+        <RemainingQuestions
+          askedQuestions={askedQuestions}
+          totalQuestions={totalQuestions}
+        />
+      </View>
     )
   }
 }
