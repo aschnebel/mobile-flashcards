@@ -11,7 +11,7 @@ export default (Question = ({ question, handleToggle }) => (
     </View>
     <View style={styles.actionsContainer}>
       <TextButton
-        style={[styles.button, { borderWidth: 'none' }]}
+        style={[styles.button, { borderWidth: 0 }]}
         textStyle={{ color: pink }}
         onPress={() => handleToggle()}
       >

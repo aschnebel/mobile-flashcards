@@ -28,7 +28,7 @@ export default (QuizResult = ({
         Restart Quiz
       </TextButton>
       <TextButton
-        style={{ borderWidth: 'none' }}
+        style={{ borderWidth: 0 }}
         textStyle={{ color: pink }}
         onPress={handleBackToDeck}
       >

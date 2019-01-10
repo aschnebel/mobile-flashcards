@@ -50,7 +50,7 @@ class DeckDetails extends Component {
             Start Quiz
           </TextButton>
           <TextButton
-            style={{ borderWidth: 'none' }}
+            style={{ borderWidth: 0 }}
             textStyle={{ color: pink }}
             onPress={this.handleDeletion}
           >
