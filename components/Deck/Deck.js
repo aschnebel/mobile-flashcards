@@ -4,29 +4,25 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 import { grey } from '../../utils/colors'
 
-class Deck extends Component {
-  render() {
-    const { deck } = this.props
-    return (
-      <View style={styles.deckContainer}>
-          <Text style={styles.title}>{deck.title}</Text>
-          <Text style={styles.cards}>
-            {deck.questions.length === 1 
-              ? `${deck.questions.length} card` 
-              : `${deck.questions.length} cards`
-            }
-          </Text>
-      </View>
-    )
-  }
-}
-
 const mapStateToProps = (decks, { id }) => {
   const deck = decks[id]
   return {
     deck
   }
 }
+
+export default connect(mapStateToProps)(
+  (Deck = ({ deck }) => (
+    <View style={styles.deckContainer}>
+      <Text style={styles.title}>{deck.title}</Text>
+      <Text style={styles.cards}>
+        {deck.questions.length === 1
+          ? `${deck.questions.length} card`
+          : `${deck.questions.length} cards`}
+      </Text>
+    </View>
+  ))
+)
 
 const styles = StyleSheet.create({
   deckContainer: {
@@ -45,5 +41,3 @@ const styles = StyleSheet.create({
     color: grey
   }
 })
-
-export default connect(mapStateToProps)(Deck)
