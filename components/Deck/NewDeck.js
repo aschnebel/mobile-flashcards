@@ -22,6 +22,9 @@ class NewDeck extends Component {
   handleSubmit = () => {
     const { value } = this.state
     const { dispatch, navigation } = this.props
+    if (!value) {
+      return alert('Please add the Deck name')
+    }
     saveDeckTitle(value)
       .then(dispatch(addDeck(value)))
       .then(() => {

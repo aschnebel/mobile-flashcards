@@ -27,7 +27,9 @@ class AddCard extends Component {
   handleSubmit = () => {
     const { question, answer } = this.state
     const { dispatch, navigation, deckId } = this.props
-
+    if (!question || !answer) {
+      return alert('Please add a question and answer')
+    }
     saveCardToDeck(deckId, {
       question,
       answer
